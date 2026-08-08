@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malhotra Paint House | Colouring Homes, Building Trust Since 2009</title>
+  
+  <style>
+    /* --- GLOBAL & BASE STYLES --- */
+    :root {
+      --mph-primary: #2563eb; /* Vibrant Blue */
+      --mph-secondary: #10b981; /* Emerald Green */
+      --mph-accent: #f59e0b; /* Warm Amber */
+      --mph-dark: #0f172a; /* Deep Slate for text */
+      --mph-text: #475569; /* Soft Gray for paragraphs */
+      --mph-bg-light: #f8fafc; /* Very light gray */
+      --mph-bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* Fresh blue gradient */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      padding-top: 90px;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--mph-text);
+      overflow-x: hidden;
+    }
+
+    .mph-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* --- NAVBAR --- */
+    .mph-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+
+    .mph-navbar .mph-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .mph-logo h2 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--mph-dark);
+    }
+
+    .mph-nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .mph-nav a {
+      text-decoration: none;
+      color: var(--mph-text);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .mph-nav a:hover {
+      color: var(--mph-primary);
+    }
+
+    .mph-call-btn {
+      background: var(--mph-secondary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .mph-call-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    /* --- HERO SECTION --- */
+    .mph-hero {
+      padding: 100px 0;
+      background: var(--mph-bg-gradient);
+    }
+
+    .mph-hero .mph-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .mph-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #fef3c7;
+      color: #d97706;
+      border-radius: 30px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .mph-hero h1 {
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--mph-dark);
+    }
+
+    .mph-hero p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--mph-text);
+    }
+
+    .mph-stats {
+      display: flex;
+      gap: 40px;
+      margin: 35px 0;
+    }
+
+    .mph-stats h3 {
+      font-size: 32px;
+      margin: 0;
+      color: var(--mph-primary);
+    }
+
+    .mph-stats span {
+      font-size: 14px;
+      color: var(--mph-text);
+    }
+
+    .mph-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .mph-primary-btn {
+      background: var(--mph-primary);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .mph-primary-btn:hover {
+      background: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .mph-secondary-btn {
+      border: 2px solid var(--mph-primary);
+      color: var(--mph-primary);
+      background: transparent;
+      padding: 14px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .mph-secondary-btn:hover {
+      background: var(--mph-primary);
+      color: white;
+    }
+
+    .mph-hero-image img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    /* --- ABOUT SECTION --- */
+    .mph-about {
+      padding: 80px 0 100px;
+    }
+
+    .mph-about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mph-section-tag {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--mph-primary);
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .mph-about h2,
+    .mph-brands h2 {
+      font-size: 54px;
+      margin-bottom: 20px;
+      color: var(--mph-dark);
+      line-height: 1.2;
+    }
+
+    .mph-about p {
+      color: var(--mph-text);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .mph-highlights {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .mph-highlight {
+      padding: 14px;
+      background: #ffffff;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      border-left: 4px solid var(--mph-primary);
+    }
+
+    .mph-highlight:nth-child(1) { border-left-color: var(--mph-primary); }
+    .mph-highlight:nth-child(2) { border-left-color: var(--mph-secondary); }
+    .mph-highlight:nth-child(3) { border-left-color: var(--mph-accent); }
+    .mph-highlight:nth-child(4) { border-left-color: #8b5cf6; }
+
+    /* --- BRANDS SECTION --- */
+    .mph-brands {
+      padding: 100px 0;
+      background: var(--mph-bg-light);
+    }
+
+    .mph-section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .mph-brand-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .mph-brand-card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.04);
+      transition: .3s;
+    }
+
+    .mph-brand-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+    }
+
+    .mph-brand-card img {
+      max-width: 220px;
+      max-height: 85px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transition: .3s;
+    }
+
+    .mph-brand-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* --- COMMON SECTION HEADINGS --- */
+    .mph-section {
+      padding: 60px 0 100px;
+      background: #ffffff;
+    }
+
+    .mph-section-heading {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .mph-section-heading h2 {
+      font-size: 42px;
+      color: var(--mph-dark);
+      margin-bottom: 15px;
+    }
+
+    .mph-section-heading p {
+      color: var(--mph-text);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .mph-tag {
+      display: inline-block;
+      padding: 8px 18px;
+      background: #eff6ff;
+      color: var(--mph-primary);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    /* --- WHY CHOOSE US --- */
+    .mph-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .mph-feature-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
+      border-top: 4px solid var(--mph-primary);
+      transition: .3s;
+    }
+
+    .mph-feature-card:nth-child(3n+1) { border-top-color: var(--mph-primary); }
+    .mph-feature-card:nth-child(3n+2) { border-top-color: var(--mph-secondary); }
+    .mph-feature-card:nth-child(3n) { border-top-color: var(--mph-accent); }
+
+    .mph-feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+    }
+
+    .mph-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: var(--mph-primary);
+    }
+
+    .mph-feature-card h3 {
+      margin-bottom: 10px;
+      color: var(--mph-dark);
+    }
+
+    .mph-feature-card p {
+      color: var(--mph-text);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* --- PRODUCTS SECTION --- */
+    .mph-products {
+      padding: 60px 0 100px;
+      background: var(--mph-bg-light);
+    }
+
+    .mph-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .mph-product-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .04);
+      border-left: 4px solid var(--mph-primary);
+      transition: .3s;
+    }
+
+    .mph-product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+    }
+
+    .mph-product-card h3 {
+      margin-bottom: 10px;
+      color: var(--mph-dark);
+    }
+
+    .mph-product-card p {
+      color: var(--mph-text);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* --- SERVICES SECTION --- */
+    .mph-services {
+      padding: 60px 0 100px;
+      background: #fff;
+    }
+
+    .mph-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .mph-service-card {
+      background: var(--mph-bg-light);
+      padding: 35px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      transition: .3s;
+    }
+
+    .mph-service-card:hover {
+      transform: translateY(-8px);
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+      border-color: var(--mph-secondary);
+    }
+
+    .mph-service-card h3 {
+      margin-bottom: 12px;
+      color: var(--mph-dark);
+    }
+
+    .mph-service-card p {
+      color: var(--mph-text);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .mph-service-cta {
+      text-align: center;
+      padding: 50px;
+      background: var(--mph-dark);
+      border-radius: 20px;
+      color: #fff;
+    }
+
+    .mph-service-cta h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .mph-service-cta p {
+      margin-bottom: 25px;
+      opacity: .9;
+    }
+
+    .mph-whatsapp-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--mph-secondary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .mph-whatsapp-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    }
+
+    /* --- GALLERY SECTION --- */
+    .mph-gallery {
+      padding: 100px 0;
+      background: #ffffff;
+    }
+
+    .mph-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 250px;
+      gap: 20px;
+    }
+
+    .mph-gallery-item {
+      overflow: hidden;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: .4s;
+    }
+
+    .mph-gallery-item:hover {
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .mph-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: .5s;
+    }
+
+    .mph-gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .mph-gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .mph-gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .mph-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, .95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 30px;
+    }
+
+    .mph-lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .mph-close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 50px;
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .mph-close-lightbox:hover {
+      color: var(--mph-primary);
+    }
+
+    /* --- TRUST / STATS SECTION --- */
+    .mph-trust {
+      padding: 60px 0 100px;
+      background: var(--mph-bg-light);
+    }
+
+    .mph-counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .mph-counter-card {
+      background: white;
+      padding: 45px 25px;
+      text-align: center;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.04);
+      border-bottom: 4px solid transparent;
+      transition: .3s ease;
+    }
+
+    .mph-counter-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .mph-counter-card:nth-child(1) { border-bottom-color: var(--mph-primary); }
+    .mph-counter-card:nth-child(1) h3 { color: var(--mph-primary); }
+    .mph-counter-card:nth-child(1):hover { box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15); }
+
+    .mph-counter-card:nth-child(2) { border-bottom-color: var(--mph-secondary); }
+    .mph-counter-card:nth-child(2) h3 { color: var(--mph-secondary); }
+    .mph-counter-card:nth-child(2):hover { box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15); }
+
+    .mph-counter-card:nth-child(3) { border-bottom-color: var(--mph-accent); }
+    .mph-counter-card:nth-child(3) h3 { color: var(--mph-accent); }
+    .mph-counter-card:nth-child(3):hover { box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15); }
+
+    .mph-counter-card:nth-child(4) { border-bottom-color: #8b5cf6; }
+    .mph-counter-card:nth-child(4) h3 { color: #8b5cf6; }
+    .mph-counter-card:nth-child(4):hover { box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15); }
+
+    .mph-counter-card h3 {
+      font-size: 48px;
+      margin: 0 0 10px;
+      font-weight: 800;
+      transition: .3s;
+    }
+
+    .mph-counter-card p {
+      margin: 0;
+      color: var(--mph-text);
+      font-weight: 600;
+    }
+
+    /* --- CONTACT SECTION --- */
+    .mph-contact {
+      padding: 60px 0 100px;
+      background: #ffffff;
+    }
+
+    .mph-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+    }
+
+    .mph-contact-card,
+    .mph-map-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.04);
+      transition: .3s;
+    }
+
+    .mph-contact-card {
+      border-top: 4px solid var(--mph-primary);
+    }
+
+    .mph-contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+    }
+
+    .mph-map-card {
+      border-top: 4px solid var(--mph-accent);
+    }
+
+    .mph-map-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(245, 158, 11, 0.1);
+    }
+
+    .mph-contact-card h3 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: var(--mph-dark);
+    }
+
+    .mph-contact-item {
+      margin-bottom: 25px;
+    }
+
+    .mph-contact-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--mph-dark);
+    }
+
+    .mph-contact-item span {
+      color: var(--mph-text);
+      line-height: 1.8;
+    }
+
+    .mph-contact-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .mph-call-btn-contact {
+      background: var(--mph-primary);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .mph-call-btn-contact:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .mph-whatsapp-contact {
+      background: var(--mph-secondary);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .mph-whatsapp-contact:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    /* --- FINAL CTA & FOOTER --- */
+    .mph-final-cta, .mph-footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    .mph-final-cta {
+      padding: 90px 0;
+      background: linear-gradient(135deg, var(--mph-primary) 0%, #1e40af 100%);
+      text-align: center;
+      color: white;
+    }
+
+    .mph-final-cta h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .mph-final-cta p {
+      max-width: 700px;
+      margin: auto;
+      opacity: .9;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .mph-final-cta a {
+      display: inline-block;
+      padding: 15px 30px;
+      background: var(--mph-secondary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .mph-final-cta a:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .mph-footer {
+      background: var(--mph-dark);
+      color: white;
+      padding: 80px 0 20px;
+    }
+
+    .mph-footer .mph-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .mph-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .mph-footer h3,
+    .mph-footer h4 {
+      margin-bottom: 20px;
+    }
+
+    .mph-footer p,
+    .mph-footer li,
+    .mph-footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      list-style: none;
+      line-height: 2;
+      transition: color 0.3s;
+    }
+
+    .mph-footer a:hover {
+      color: var(--mph-secondary);
+    }
+
+    .mph-footer ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    .mph-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin-top: 50px;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .mph-footer-bottom p {
+      margin: 0;
+    }
+
+    /* --- FLOATING BUTTONS --- */
+    .mph-floating-whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 60px;
+      height: 60px;
+      background: var(--mph-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      border-radius: 50%;
+      z-index: 999;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .mph-floating-whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    .mph-scroll-top {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      width: 55px;
+      height: 55px;
+      border: none;
+      border-radius: 50%;
+      background: var(--mph-primary);
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 999;
+      display: none;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .mph-scroll-top:hover {
+      transform: translateY(-5px);
+    }
+
+    /* --- MEDIA QUERIES --- */
+    @media(max-width: 1200px){
+      .mph-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px){
+      body {
+        padding-top: 80px;
+      }
+      .mph-nav {
+        display: none;
+      }
+      .mph-hero .mph-container {
+        grid-template-columns: 1fr;
+      }
+      .mph-hero h1 {
+        font-size: 42px;
+      }
+      .mph-about h2,
+      .mph-brands h2 {
+        font-size: 34px;
+      }
+      .mph-brand-grid {
+        grid-template-columns: 1fr;
+      }
+      .mph-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .mph-highlights,
+      .mph-features-grid,
+      .mph-products-grid,
+      .mph-services-grid {
+        grid-template-columns: 1fr;
+      }
+      .mph-section-heading h2 {
+        font-size: 32px;
+      }
+      .mph-service-cta {
+        padding: 30px 20px;
+      }
+      .mph-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+      }
+      .mph-gallery-item.tall,
+      .mph-gallery-item.wide {
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .mph-counter-grid {
+        grid-template-columns: 1fr;
+      }
+      .mph-counter-card h3 {
+        font-size: 38px;
+      }
+      .mph-contact-grid,
+      .mph-footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .mph-final-cta h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <section class="mph-navbar">
+    <div class="mph-container">
+      <div class="mph-logo">
+        <h2>Malhotra Paint House</h2>
+      </div>
+
+      <nav class="mph-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#brands">Brands</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="tel:9888403690" class="mph-call-btn">
+        Call Now
+      </a>
+    </div>
+  </section>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="mph-hero">
+    <div class="mph-hero-overlay"></div>
+    <div class="mph-container">
+      <div class="mph-hero-content">
+        <span class="mph-badge">
+          ESTABLISHED 2009
+        </span>
+        <h1>
+          Colouring Homes,<br>
+          Building Trust Since 2009
+        </h1>
+        <p>
+          For over 15 years, Malhotra Paint House has helped homeowners,
+          contractors, and businesses choose the perfect paint solutions
+          from India's most trusted brands.
+        </p>
+
+        <div class="mph-stats">
+          <div>
+            <h3>15+</h3>
+            <span>Years Experience</span>
+          </div>
+          <div>
+            <h3 class="mph-counter mph-dynamic-customers" data-target="11356">11356+</h3>
+            <span>Happy Customers</span>
+          </div>
+          <div>
+            <h3>4</h3>
+            <span>Trusted Brands</span>
+          </div>
+        </div>
+
+        <div class="mph-buttons">
+          <a href="#contact" class="mph-primary-btn">
+            Contact Us
+          </a>
+          <a href="#services" class="mph-secondary-btn">
+            Explore Services
+          </a>
+        </div>
+      </div>
+
+      <div class="mph-hero-image">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/unnamed.jpg?v=1780133629"
+          alt="Paint Store"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="mph-about">
+    <div class="mph-container">
+      <div class="mph-about-content">
+        <span class="mph-section-tag">
+          ABOUT US
+        </span>
+        <h2>
+          A Family Business Built On Trust
+        </h2>
+        <p>
+          Malhotra Paint House was founded in 2009 with a commitment to
+          providing quality paint products, expert guidance, and dependable
+          service.
+        </p>
+        <p>
+          Over the years, we have become a trusted destination for homeowners,
+          contractors, and professionals looking for reliable paint solutions
+          and skilled painters.
+        </p>
+
+        <div class="mph-highlights">
+          <div class="mph-highlight">
+            ✓ Family-Owned Business
+          </div>
+          <div class="mph-highlight">
+            ✓ Trusted Since 2009
+          </div>
+          <div class="mph-highlight">
+            ✓ Customer-Focused Service
+          </div>
+          <div class="mph-highlight">
+            ✓ Expert Product Guidance
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS SECTION -->
+  <section id="brands" class="mph-brands">
+    <div class="mph-container">
+      <div class="mph-section-header">
+        <span class="mph-section-tag">
+          BRANDS WE DEAL IN
+        </span>
+        <h2>
+          India's Most Trusted Paint Brands
+        </h2>
+        <p>
+          We proudly offer genuine products from leading paint manufacturers.
+        </p>
+      </div>
+
+      <div class="mph-brand-grid">
+        <div class="mph-brand-card">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/3_1.png?v=1780134569" alt="Asian Paints">
+        </div>
+        <div class="mph-brand-card">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/2_1.png?v=1780134561" alt="Berger Paints">
+        </div>
+        <div class="mph-brand-card">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/4_1.png?v=1780134509" alt="Nelson Paints">
+        </div>
+        <div class="mph-brand-card">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/1_1.png?v=1780134553" alt="Birla Opus">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why-choose-us" class="mph-section">
+    <div class="mph-container">
+
+      <div class="mph-section-heading">
+        <span class="mph-tag">WHY CHOOSE US</span>
+        <h2>Why Customers Trust Malhotra Paint House</h2>
+        <p>
+          For over 15 years, we have helped homeowners, contractors and businesses
+          find the right paint solutions backed by expert guidance and dependable service.
+        </p>
+      </div>
+
+      <div class="mph-features-grid">
+
+        <div class="mph-feature-card">
+          <div class="mph-icon">🏆</div>
+          <h3>15+ Years Experience</h3>
+          <p>Serving customers since 2009 with trusted paint solutions and professional advice.</p>
+        </div>
+
+        <div class="mph-feature-card">
+          <div class="mph-icon">✓</div>
+          <h3>Genuine Products</h3>
+          <p>Only authentic products sourced directly from leading paint manufacturers.</p>
+        </div>
+
+        <div class="mph-feature-card">
+          <div class="mph-icon">🎨</div>
+          <h3>Trusted Paint Brands</h3>
+          <p>Asian Paints, Berger, Nerolac and Birla Opus products under one roof.</p>
+        </div>
+
+        <div class="mph-feature-card">
+          <div class="mph-icon">👷</div>
+          <h3>Professional Painter Network</h3>
+          <p>Access to experienced painters for residential and commercial projects.</p>
+        </div>
+
+        <div class="mph-feature-card">
+          <div class="mph-icon">💡</div>
+          <h3>Expert Colour Guidance</h3>
+          <p>Helping customers choose colours and finishes that suit their spaces.</p>
+        </div>
+
+        <div class="mph-feature-card">
+          <div class="mph-icon">₹</div>
+          <h3>Competitive Pricing</h3>
+          <p>Fair pricing with quality products and dependable customer support.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section id="products" class="mph-products">
+    <div class="mph-container">
+
+      <div class="mph-section-heading">
+        <span class="mph-tag">PRODUCTS & SOLUTIONS</span>
+        <h2>Complete Paint & Surface Solutions</h2>
+        <p>
+          Everything you need for residential, commercial and renovation projects.
+        </p>
+      </div>
+
+      <div class="mph-products-grid">
+
+        <div class="mph-product-card">
+          <h3>Interior Paints</h3>
+          <p>Premium finishes designed to enhance interior spaces.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Exterior Paints</h3>
+          <p>Weather-resistant coatings for lasting exterior protection.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Waterproofing Solutions</h3>
+          <p>Protect buildings against moisture and water damage.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Primers & Putty</h3>
+          <p>Quality surface preparation for superior paint performance.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Wood Coatings</h3>
+          <p>Protective and decorative coatings for wooden surfaces.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Metal Coatings</h3>
+          <p>Durable protection and finish solutions for metal surfaces.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Decorative Finishes</h3>
+          <p>Modern textures and special effects for unique interiors.</p>
+        </div>
+
+        <div class="mph-product-card">
+          <h3>Painting Accessories</h3>
+          <p>Brushes, rollers, tools and accessories for every project.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="mph-services">
+    <div class="mph-container">
+
+      <div class="mph-section-heading">
+        <span class="mph-tag">PAINTING SERVICES</span>
+        <h2>Professional Painters Available</h2>
+
+        <p>
+          We help customers connect with experienced painters for residential,
+          commercial and renovation projects.
+        </p>
+      </div>
+
+      <div class="mph-services-grid">
+
+        <div class="mph-service-card">
+          <h3>Interior Painting</h3>
+          <p>
+            Professional painting solutions designed to transform living and working spaces.
+          </p>
+        </div>
+
+        <div class="mph-service-card">
+          <h3>Exterior Painting</h3>
+          <p>
+            Long-lasting exterior coatings that enhance appearance and protection.
+          </p>
+        </div>
+
+        <div class="mph-service-card">
+          <h3>Home Renovation Painting</h3>
+          <p>
+            Complete repainting solutions for renovation and remodeling projects.
+          </p>
+        </div>
+
+        <div class="mph-service-card">
+          <h3>Texture Finishes</h3>
+          <p>
+            Decorative textures and designer wall finishes for modern interiors.
+          </p>
+        </div>
+
+        <div class="mph-service-card">
+          <h3>Waterproofing Applications</h3>
+          <p>
+            Specialized solutions for protecting structures from water damage.
+          </p>
+        </div>
+
+        <div class="mph-service-card">
+          <h3>Commercial Projects</h3>
+          <p>
+            Professional painting services for offices, retail spaces and businesses.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mph-service-cta">
+        <h3>Need Professional Painting Assistance?</h3>
+        <p>
+          Speak with our team and we'll help connect you with experienced painters.
+        </p>
+
+        <a href="https://wa.me/919888403690" class="mph-whatsapp-btn" target="_blank">
+          Contact on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery" class="mph-gallery">
+    <div class="mph-container">
+
+      <div class="mph-section-heading">
+        <span class="mph-tag">OUR GALLERY</span>
+        <h2>Projects, Products & Store Showcase</h2>
+        <p>
+          A glimpse into our store, paint solutions, completed projects,
+          colour displays and professional painting work.
+        </p>
+      </div>
+
+      <div class="mph-gallery-grid">
+
+        <div class="mph-gallery-item">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/IMG_3552.jpg?v=1780214461" alt="Store Front">
+        </div>
+
+        <div class="mph-gallery-item tall">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/IMG_3551.jpg?v=1780214462" alt="Interior Store">
+        </div>
+
+        <div class="mph-gallery-item">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/IMG_3554.jpg?v=1780214608" alt="Paint Shades">
+        </div>
+
+        <div class="mph-gallery-item">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/IMG_3542_98fef85a-b934-4900-9a73-9c34fadb2e50.jpg?v=1780214854" alt="Project">
+        </div>
+
+        <div class="mph-gallery-item">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/38695359-8a38-440e-b2aa-240e8105bcd2.jpg?v=1780214853" alt="Painting Work">
+        </div>
+
+        <div class="mph-gallery-item wide">
+          <img src="https://cdn.shopify.com/s/files/1/0745/4395/6159/files/5d8ec4ed-69aa-4d5d-b5ba-25ac66ffd46b.jpg?v=1780214854" alt="Completed Project">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="mphLightbox" class="mph-lightbox">
+    <span class="mph-close-lightbox">&times;</span>
+    <img id="mphLightboxImage" src="" alt="Enlarged view">
+  </div>
+
+  <!-- TRUST SECTION -->
+  <section id="trust" class="mph-trust">
+    <div class="mph-container">
+
+      <div class="mph-section-heading">
+        <span class="mph-tag">OUR TRACK RECORD</span>
+        <h2>Trusted By Customers Since 2009</h2>
+        <p>
+          Built on quality products, expert guidance and dependable service.
+        </p>
+      </div>
+
+      <div class="mph-counter-grid">
+
+        <div class="mph-counter-card">
+          <h3 class="mph-counter" data-target="15">15+</h3>
+          <p>Years Experience</p>
+        </div>
+
+        <div class="mph-counter-card">
+          <h3 class="mph-counter mph-dynamic-customers" data-target="11356">11356+</h3>
+          <p>Happy Customers</p>
+        </div>
+
+        <div class="mph-counter-card">
+          <h3 class="mph-counter" data-target="4">4+</h3>
+          <p>Trusted Paint Brands</p>
+        </div>
+
+        <div class="mph-counter-card">
+          <h3>✓</h3>
+          <p>Reliable Painter Network</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="mph-contact">
+    <div class="mph-container">
+
+      <div class="mph-section-heading">
+        <span class="mph-tag">CONTACT US</span>
+        <h2>Visit Malhotra Paint House</h2>
+        <p>
+          Get in touch with us for paint products, colour guidance,
+          waterproofing solutions and professional painter services.
+        </p>
+      </div>
+
+      <div class="mph-contact-grid">
+
+        <div class="mph-contact-card">
+
+          <h3>Contact Information</h3>
+
+          <div class="mph-contact-item">
+            <strong>Phone</strong>
+            <span>9888403690</span>
+          </div>
+
+          <div class="mph-contact-item">
+            <strong>WhatsApp</strong>
+            <span>9888403690</span>
+          </div>
+
+          <div class="mph-contact-item">
+            <strong>Address</strong>
+            <span>
+              B-XXVIII , 1303/5-A, Street No.6 , Pakhowal Rd, Karnail Singh Nagar Phase-II, Ludhiana, Punjab
+            </span>
+          </div>
+
+          <div class="mph-contact-item">
+            <strong>Business Hours</strong>
+            <span>
+              Monday - Saturday<br>
+              9:00 AM - 8:30 PM
+            </span>
+          </div>
+
+          <div class="mph-contact-buttons">
+
+            <a href="tel:9888403690" class="mph-call-btn-contact">
+              Call Now
+            </a>
+
+            <a href="https://wa.me/919888403690" class="mph-whatsapp-contact" target="_blank">
+              WhatsApp Us
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="mph-map-card">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.376369873009!2d75.8166986!3d30.876130600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a822f8dcda0ef%3A0x534b561c3513c0b7!2sMalhotra%20Paint%20House!5e0!3m2!1sen!2sin!4v1780135290284!5m2!1sen!2sin"
+            style="width:100%;height:450px;border:none;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="mph-final-cta">
+    <div class="mph-container">
+
+      <h2>
+        Ready To Transform Your Space?
+      </h2>
+
+      <p>
+        Visit Malhotra Paint House for trusted paint brands,
+        expert advice and professional painting solutions.
+      </p>
+
+      <a href="https://wa.me/919888403690" target="_blank">
+        Get Started Today
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mph-footer">
+    <div class="mph-container">
+
+      <div class="mph-footer-grid">
+
+        <div>
+          <h3>Malhotra Paint House</h3>
+          <p>
+            Colouring Homes, Building Trust Since 2009.
+          </p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#brands">Brands</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Brands</h4>
+          <ul>
+            <li>Asian Paints</li>
+            <li>Berger Paints</li>
+            <li>Nerolac Paints</li>
+            <li>Birla Opus</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>9888403690</li>
+            <li>WhatsApp Available</li>
+            <li>Since 2009</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mph-footer-bottom">
+        <p>
+          © 2026 Malhotra Paint House. All Rights Reserved.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <a href="https://wa.me/919888403690" class="mph-floating-whatsapp" target="_blank" aria-label="WhatsApp">
+    💬
+  </a>
+
+  <button id="mphScrollTop" class="mph-scroll-top" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+
+      // 1. Dynamic Happy Customers Calculator (+50 per day)
+      const dynamicCustomerEls = document.querySelectorAll('.mph-dynamic-customers');
+      if (dynamicCustomerEls.length > 0) {
+        const startDate = new Date(2026, 4, 30); // May 30, 2026
+        const today = new Date();
+        const diffTime = today.getTime() - startDate.getTime();
+        
+        // Calculate full days passed
+        const daysDiff = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
+        
+        // Base count (11356) + 50 for every day passed
+        const totalCount = 11356 + (daysDiff * 50);
+
+        dynamicCustomerEls.forEach(el => {
+          el.setAttribute('data-target', totalCount);
+          el.innerText = totalCount + '+';
+        });
+      }
+
+      // 2. Lightbox Functionality
+      const galleryImages = document.querySelectorAll('.mph-gallery-item img');
+      const lightbox = document.getElementById('mphLightbox');
+      const lightboxImage = document.getElementById('mphLightboxImage');
+      const closeLightbox = document.querySelector('.mph-close-lightbox');
+
+      galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.style.display = 'flex';
+          lightboxImage.src = img.src;
+        });
+      });
+
+      if (closeLightbox) {
+        closeLightbox.addEventListener('click', () => {
+          lightbox.style.display = 'none';
+        });
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+          }
+        });
+      }
+
+      // 3. Animated Number Counter
+      const counters = document.querySelectorAll('.mph-counter');
+      const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            const counter = entry.target;
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+
+            const updateCounter = () => {
+              const increment = Math.ceil(target / 60);
+              count += increment;
+
+              if(count < target){
+                counter.innerText = count;
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.innerText = target + '+';
+              }
+            };
+
+            updateCounter();
+            counterObserver.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(counter => {
+        counterObserver.observe(counter);
+      });
+
+      // 4. Scroll To Top Button
+      const scrollBtn = document.getElementById('mphScrollTop');
+      if (scrollBtn) {
+        window.addEventListener('scroll', function(){
+          if(window.scrollY > 500){
+            scrollBtn.style.display = 'block';
+          } else {
+            scrollBtn.style.display = 'none';
+          }
+        });
+
+        scrollBtn.addEventListener('click', function(){
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // 5. Scroll Reveal Animations
+      const revealElements = document.querySelectorAll(
+        '.mph-feature-card, .mph-product-card, .mph-service-card, .mph-brand-card, .mph-counter-card'
+      );
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.2 });
+
+      revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'all .6s ease';
+        revealObserver.observe(el);
+      });
+
+    });
+  </script>
+</body>
+</html>
